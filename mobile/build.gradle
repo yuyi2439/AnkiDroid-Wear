@@ -84,7 +84,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:2.5.1'
     // API which can be used to add and query notes,cards,decks, and models to AnkiDroid
     // See https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-API
-    // Available on Jcenter
-    implementation 'com.github.ankidroid:Anki-Android:api-v1.1.0'
+    // Available on Jitpack
+    implementation 'com.github.ankidroid:Anki-Android:2.17alpha13'
     implementation 'com.android.support:multidex:1.0.3'
 }
