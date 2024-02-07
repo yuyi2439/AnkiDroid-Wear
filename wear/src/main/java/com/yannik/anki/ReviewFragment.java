@@ -183,44 +183,41 @@ public class ReviewFragment extends Fragment implements WearMainActivity.JsonRec
     private void showButtons() {
         if (nextReviewTimes == null) return;
         showingEaseButtons = true;
-        try {
-            switch (numButtons) {
-                case 2:
-                    easeButtons[MID].centerX();
-                    easeButtons[FAILED].centerX();
-                    easeButtons[MID].slideIn(100);
-                    easeButtons[FAILED].slideIn(300);
-                    easeButtons[FAILED].setText(nextReviewTimes.getString(0));
-                    easeButtons[MID].setText(nextReviewTimes.getString(1));
-                    break;
-                case 3:
-                    easeButtons[FAILED].centerX();
-                    easeButtons[EASY].left();
-                    easeButtons[MID].right();
-                    easeButtons[EASY].slideIn(100);
-                    easeButtons[MID].slideIn(300);
-                    easeButtons[FAILED].slideIn(500);
-                    easeButtons[FAILED].setText(nextReviewTimes.getString(0));
-                    easeButtons[MID].setText(nextReviewTimes.getString(1));
-                    easeButtons[EASY].setText(nextReviewTimes.getString(2));
+        switch (numButtons) {
+            case 2:
+                easeButtons[MID].centerX();
+                easeButtons[FAILED].centerX();
+                easeButtons[MID].slideIn(100);
+                easeButtons[FAILED].slideIn(300);
+                easeButtons[FAILED].setText("");
+                easeButtons[MID].setText("");
+                break;
+            case 3:
+                easeButtons[FAILED].centerX();
+                easeButtons[EASY].left();
+                easeButtons[MID].right();
+                easeButtons[EASY].slideIn(100);
+                easeButtons[MID].slideIn(300);
+                easeButtons[FAILED].slideIn(500);
+                easeButtons[FAILED].setText("");
+                easeButtons[MID].setText("");
+                easeButtons[EASY].setText("");
 
-                    break;
-                case 4:
-                    easeButtons[EASY].left();
-                    easeButtons[MID].right();
-                    easeButtons[HARD].left();
-                    easeButtons[FAILED].right();
-                    easeButtons[EASY].slideIn(100);
-                    easeButtons[MID].slideIn(300);
-                    easeButtons[HARD].slideIn(500);
-                    easeButtons[FAILED].slideIn(700);
-                    easeButtons[FAILED].setText(nextReviewTimes.getString(0));
-                    easeButtons[HARD].setText(nextReviewTimes.getString(1));
-                    easeButtons[MID].setText(nextReviewTimes.getString(2));
-                    easeButtons[EASY].setText(nextReviewTimes.getString(3));
-                    break;
-            }
-        } catch (JSONException ignored) {
+                break;
+            case 4:
+                easeButtons[EASY].left();
+                easeButtons[MID].right();
+                easeButtons[HARD].left();
+                easeButtons[FAILED].right();
+                easeButtons[EASY].slideIn(100);
+                easeButtons[MID].slideIn(300);
+                easeButtons[HARD].slideIn(500);
+                easeButtons[FAILED].slideIn(700);
+                easeButtons[FAILED].setText("");
+                easeButtons[HARD].setText("");
+                easeButtons[MID].setText("");
+                easeButtons[EASY].setText("");
+                break;
         }
     }
 
