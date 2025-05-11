@@ -65,6 +65,8 @@ public class WearMessageListenerService extends WearableListenerService {
     private static final String TAG = "WearMessageListener";
     public static final String[] SIMPLE_CARD_PROJECTION = {
             FlashCardsContract.Card.ANSWER_PURE,
+            FlashCardsContract.Card.ANSWER_SIMPLE,
+            FlashCardsContract.Card.ANSWER,
             FlashCardsContract.Card.QUESTION_SIMPLE};
     private static final Uri DUE_CARD_REVIEW_INFO_URI = FlashCardsContract.ReviewInfo.CONTENT_URI;
     //private static final Uri REQUEST_DECKS_URI = Uri.withAppendedPath(FlashCardsContract.AUTHORITY_URI, "decks");
@@ -412,7 +414,15 @@ public class WearMessageListenerService extends WearableListenerService {
                             }
                             return;
                         } else {
-                            card.a = specificCardCursor.getString(specificCardCursor.getColumnIndex(FlashCardsContract.Card.ANSWER_PURE));
+                            String answer = specificCardCursor.getString(specificCardCursor.getColumnIndex(FlashCardsContract.Card.ANSWER_PURE));
+                            if (answer == null || answer.trim().isEmpty()) {
+                                answer = specificCardCursor.getString(specificCardCursor.getColumnIndex(FlashCardsContract.Card.ANSWER_SIMPLE));
+                            }
+                            if (answer == null || answer.trim().isEmpty()) {
+                                answer = specificCardCursor.getString(specificCardCursor.getColumnIndex(FlashCardsContract.Card.ANSWER));
+                            }
+
+                            card.a = answer;
                             card.q = specificCardCursor.getString(specificCardCursor.getColumnIndex(FlashCardsContract.Card.QUESTION_SIMPLE));
                             specificCardCursor.close();
                         }
